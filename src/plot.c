@@ -1,7 +1,6 @@
 #include "plot.h"
 
-
-void plot_magnitude_spectrogram_in_db(float *magnitude_spectrogram, int nfft, int num_frames, int analysis_bin_limit, const char *title, int index) {
+void plot_magnitude_spectrogram_in_db(float *magnitude_spectrogram, int nfft, int num_frames, int analysis_bin_limit, const char *title, int index, int use_db) {
     FILE *gnuplotPipe = popen("gnuplot -persistent", "w");
     if (gnuplotPipe == NULL) {
         fprintf(stderr, "Error opening pipe to gnuplot.\n");
@@ -10,7 +9,7 @@ void plot_magnitude_spectrogram_in_db(float *magnitude_spectrogram, int nfft, in
 
     int FS = 44100;
     float bin_width = FS / nfft;
-    float min_db = -MAX_DB_SCALE;
+    float min_db = -MAX_DB_SCALE * use_db + (use_db == 0) * 1;
     float max_xaxis = analysis_bin_limit;
     float max_yaxis = num_frames;
     float EPSILON = 1e-6;
@@ -24,27 +23,37 @@ void plot_magnitude_spectrogram_in_db(float *magnitude_spectrogram, int nfft, in
     fprintf(gnuplotPipe, "set xrange [0:%f]\n", max_xaxis);
     fprintf(gnuplotPipe, "set yrange [0:%f]\n", max_yaxis);
 
-    float ytics_interval = 5.0; // Change this value as needed
-    fprintf(gnuplotPipe, "set ytics %f\n", ytics_interval);
+    fprintf(gnuplotPipe, "set xtics rotate\n");
+    fprintf(gnuplotPipe, "set xlabel font ',6'\n"); // Adjust the font size as needed
+    fprintf(gnuplotPipe, "set ylabel font ',6'\n"); // Adjust the font size as needed
+    fprintf(gnuplotPipe, "set cblabel font ',6'\n"); // Adjust the font size as needed
 
-    // Adjust palette to a gradient more similar to 'viridis' or 'magma'
-    fprintf(gnuplotPipe, "set palette defined (0 'black', 1 'blue', 2 'green', 3 'yellow', 4 'orange', 5 'red')\n");
+    int ytics_interval = max_yaxis/ 10; // Change this value as needed
+    fprintf(gnuplotPipe, "set ytics %d\n", ytics_interval);
+
+    // Define a custom palette that matches the Librosa colormap
+//    fprintf(gnuplotPipe, "set palette defined (0 '#000000', 1 '#030764', 2 '#1e9c22', 3 '#fceed9', 4 '#fbb4ac', 5 '#7e1e9c', 6 '#000000')\n");
+    fprintf(gnuplotPipe, "set palette rgb 7,5,15\n");
     fprintf(gnuplotPipe, "splot '-' with image\n");
 
     float max_magnitude = 0;
-    for (int i = 0; i < (num_frames*analysis_bin_limit); ++i) {
+    for (int i = 0; i < (num_frames * analysis_bin_limit); ++i) {
         if (max_magnitude < magnitude_spectrogram[i]) {
             max_magnitude = magnitude_spectrogram[i];
-        } 
+        }
     }
 
     for (int i = 0; i < num_frames; ++i) {
         for (int j = 0; j < analysis_bin_limit; ++j) {
             float magnitude = magnitude_spectrogram[i * analysis_bin_limit + j];
+            float db_value = magnitude;
             magnitude = magnitude + EPSILON;
 
-            float db_value = 20 * log10(magnitude / max_magnitude);  // Clipping the dB value
-            db_value = fmax(db_value, -MAX_DB_SCALE);
+            if (use_db) {
+                db_value = 20 * log10(magnitude / max_magnitude);  // Clipping the dB value
+                db_value = fmax(db_value, -MAX_DB_SCALE);
+            }
+
 
             // Calculate the frequency corresponding to the bin
             float frequency = j * bin_width;
@@ -62,6 +71,7 @@ void plot_magnitude_spectrogram_in_db(float *magnitude_spectrogram, int nfft, in
     pclose(gnuplotPipe);
 }
 
+
 void plot_xy(float *data, int data_count, const char *x_label, const char *y_label, const char *title) {
     FILE *gnuplotPipe = popen("gnuplot -persistent", "w");
     if (gnuplotPipe == NULL) {
@@ -72,6 +82,8 @@ void plot_xy(float *data, int data_count, const char *x_label, const char *y_lab
     fprintf(gnuplotPipe, "set title '%s'\n", title);
     fprintf(gnuplotPipe, "set xlabel '%s'\n", x_label);
     fprintf(gnuplotPipe, "set ylabel '%s'\n", y_label);
+    fprintf(gnuplotPipe, "set yrange [-1:1]\n");
+
     fprintf(gnuplotPipe, "plot '-' with lines\n");
 
     for (int i = 0; i < data_count; ++i) {
