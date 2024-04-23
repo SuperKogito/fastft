@@ -13,7 +13,7 @@ void stft_init(StftStruct *stft_struct, int nfft, int win_length, int hop_length
     stft_struct->nfft = nfft;
     stft_struct->win  = win_length;
     stft_struct->hop  = hop_length;
-    printf("%d, %d, %d\n", stft_struct->nfft, stft_struct->win, stft_struct->hop);
+    printf("STFT init: nfft=%d, win=%d, hop=%d\n", stft_struct->nfft, stft_struct->win, stft_struct->hop);
 
 
     stft_struct->stft_in  = (float*) calloc(nfft, sizeof(float));
@@ -30,7 +30,7 @@ fftwf_complex* stft_compute(StftStruct* stft_struct, Signal *channel_singal, int
     Padding* padding = stft_struct->padding;
 
     float* signal  = NULL;
-    int num_frames = NULL;
+    int num_frames = 0;
 
     if (do_pad) {
         pad(channel_singal->data, channel_singal->num_samples, padding);
@@ -59,7 +59,7 @@ void stft_inner(StftStruct* stft_struct, float* signal, fftwf_complex** stft_res
 
         // normalize and handle negative frequencies
         for (int n = 0; n < num_bins; ++n) {
-            int idx = m * (stft_struct->nfft/2+1) + n;
+            int idx = m * num_bins + n;
             
             (*stft_result)[idx][0] = stft_struct->stft_out[n][0];
             (*stft_result)[idx][1] = stft_struct->stft_out[n][1];
@@ -105,8 +105,8 @@ void istft_init(IstftStruct *istft_struct, int n_fft, int reconstructed_signal_l
     istft_struct->hop = hop_length;
     istft_struct->istft_in = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * n_fft);
     istft_struct->istft_out = (float*) calloc(n_fft, sizeof(float));
-    istft_struct->wnd = (float*)calloc(WINDOW_SIZE, sizeof(float));
-    compute_hanning_window(WINDOW_SIZE, istft_struct->wnd);
+    istft_struct->wnd = (float*)calloc(FFT_SIZE, sizeof(float));
+    compute_hanning_window(FFT_SIZE, istft_struct->wnd);
     istft_struct->plan = fftwf_plan_dft_c2r_1d(n_fft, istft_struct->istft_in, istft_struct->istft_out, FFTW_ESTIMATE);
     istft_struct->window_sum = (float*)calloc(reconstructed_signal_length, sizeof(float));
     if (!istft_struct->window_sum) {
@@ -119,13 +119,31 @@ void istft_init(IstftStruct *istft_struct, int n_fft, int reconstructed_signal_l
 void istft_compute(IstftStruct* istft_struct, fftwf_complex *stft_values, float *reconstructed_signal, int reconstructed_signal_length, int num_frames, int num_bins) {
     int n_fft = istft_struct->nfft;
     for (int i = 0; i < num_frames; ++i) {
+//        // Retrieve the complex spectrum for the current frame
+//        for (int j = 0; j < n_fft/2+1; ++j) {
+//            istft_struct->istft_in[j][0] = stft_values[i * num_bins + j][0];
+//            istft_struct->istft_in[j][1] = stft_values[i * num_bins + j][1];
+//
+//            // Handle negative frequencies (except DC and Nyquist)
+//            if (j > 0) {
+//                istft_struct->istft_in[n_fft - j][0] = istft_struct->istft_in[j][0];
+//                istft_struct->istft_in[n_fft - j][1] = -istft_struct->istft_in[j][1];
+//            }
+
         // Retrieve the complex spectrum for the current frame
         for (int j = 0; j < n_fft/2+1; ++j) {
-            istft_struct->istft_in[j][0] = stft_values[i * num_bins + j][0];
-            istft_struct->istft_in[j][1] = stft_values[i * num_bins + j][1];
- 
-            // Handle negative frequencies (except DC and Nyquist)
-            if (j > 0) {
+            if (j < num_bins) {
+                istft_struct->istft_in[j][0] = stft_values[i * num_bins + j][0];
+                istft_struct->istft_in[j][1] = stft_values[i * num_bins + j][1];
+            } else {
+                istft_struct->istft_in[j][0] = 0;
+                istft_struct->istft_in[j][1] = 0;
+            }
+        }
+
+
+        for (int j = 1; j < n_fft/2+1; ++j) {
+            if (j < num_bins) {
                 istft_struct->istft_in[n_fft - j][0] = istft_struct->istft_in[j][0];
                 istft_struct->istft_in[n_fft - j][1] = -istft_struct->istft_in[j][1];
             }
