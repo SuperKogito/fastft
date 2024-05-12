@@ -49,3 +49,7 @@ The following is an illustration of the different components of the project.
 
 
 ```
+
+# Demo
+
+There will be a detailed demo on how to use **Fastft** for an audio AI task in the following repository: [https://github.com/SuperKogito/cppMOSnet](https://github.com/SuperKogito/cppMOSnet)
