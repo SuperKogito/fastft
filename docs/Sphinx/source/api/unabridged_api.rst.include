@@ -1,0 +1,139 @@
+
+Full API
+--------
+
+Classes and Structs
+*******************
+
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_istft_struct.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_padding.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_signal.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_stereo_signal.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   struct_stft_struct.rst
+
+Enums
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   enum_pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91.rst
+
+Functions
+*********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   function_pad_8h_1acd8d95b52a3fa99012de9016408bc852.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_spectral_8h_1a02e04c049159851c51ee78615b9d93ec.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_window_8h_1ad052c92e7163d5e110748b1a96b48e87.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_signal_8h_1a28bd7b72894918287ed248b5207837f5.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__istft_8h_1af955c1c363f9c19f86e52ac4c926554a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_pad_8h_1ae4c31c6bb168fefb09ebe2743bf9a917.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__istft_8h_1a33ddce3a36fb5f491eba507bba53208a.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__istft_8h_1a4dd82c41a47a01a24271a01f08b2236d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__istft_8h_1a8e1f05c296e2c67d935ae475cec1f002.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__istft_8h_1add244ba6ac36ef965b5a8eeed58088ff.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_signal_8h_1a73af1043e0859b554d4b32732a7dc455.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__stft_8h_1a6b77d07c4c00727bc0f63fe90a8cb960.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__stft_8h_1a9a9daab3450b3ec6e48da9ca123dc377.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__stft_8h_1af516fc60b3a3bfa5c76faa282898178d.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_trafo__stft_8h_1a0bce5aef7ca57a77d41e1f51bfa541d0.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_signal_8h_1ae9053006c6e6683e63ecb788a89fa3b1.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   function_signal_8h_1a699ace5998e35c6f9a7cbe732c16184d.rst
+
+Defines
+*******
+
+
+.. toctree::
+   :maxdepth: 5
+
+   define_window_8h_1a0342cf04dd48b803dca8b05381ed13de.rst

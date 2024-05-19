@@ -1,0 +1,14 @@
+.. _exhale_function_signal_8h_1a28bd7b72894918287ed248b5207837f5:
+
+Function compute_num_frames
+===========================
+
+- Defined in :ref:`file__home_am_fftw_stft_external_fastft_include_signal.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: compute_num_frames(int, int, int)
+   :project: Fastft
