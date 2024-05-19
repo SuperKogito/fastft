@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
+  <compound refid="struct_istft_struct" kind="struct"><name>IstftStruct</name>
+    <member refid="struct_istft_struct_1a7fee7b546595edcbee920757b6309386" kind="variable"><name>win</name></member>
+    <member refid="struct_istft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" kind="variable"><name>hop</name></member>
+    <member refid="struct_istft_struct_1a5fe0c446c13b53f5c7d455b623a25234" kind="variable"><name>nfft</name></member>
+    <member refid="struct_istft_struct_1ac862a0e313831d5881be4fba5710244c" kind="variable"><name>plan</name></member>
+    <member refid="struct_istft_struct_1a1b3e2ddf1169a8ec06bb5b940ce3482a" kind="variable"><name>istft_in</name></member>
+    <member refid="struct_istft_struct_1abaf45dd4eac68444d4030679ddfe432a" kind="variable"><name>istft_out</name></member>
+    <member refid="struct_istft_struct_1a22d2bd25deff35fb222c81eda8a51203" kind="variable"><name>wnd</name></member>
+    <member refid="struct_istft_struct_1a016d187a2e353c82a38d63f0e814d211" kind="variable"><name>window_sum</name></member>
+  </compound>
+  <compound refid="struct_padding" kind="struct"><name>Padding</name>
+    <member refid="struct_padding_1a2474a5474cbff19523a51eb1de01cda4" kind="variable"><name>width</name></member>
+    <member refid="struct_padding_1aad6b04034408f74aaf573e17099c0e69" kind="variable"><name>padded_signal</name></member>
+    <member refid="struct_padding_1a96e07120044421d69e5f61af170b3d27" kind="variable"><name>padded_signal_length</name></member>
+    <member refid="struct_padding_1a19a85891ade2acc5f2068c550330855d" kind="variable"><name>unpadded_signal_length</name></member>
+    <member refid="struct_padding_1a413fd0c031446b16027c701ee6482b37" kind="variable"><name>mode</name></member>
+    <member refid="struct_padding_1aec05ab9f1faa0c87bf28feb925c10286" kind="variable"><name>padded_num_frames</name></member>
+    <member refid="struct_padding_1a85023047f9689e42824c4de587a37d8e" kind="variable"><name>unpadded_num_frames</name></member>
+  </compound>
+  <compound refid="struct_signal" kind="struct"><name>Signal</name>
+    <member refid="struct_signal_1a527325650d66abd9626499785b3bafd2" kind="variable"><name>sample_rate</name></member>
+    <member refid="struct_signal_1a97e3bedeadf444995deb6fab68f57e21" kind="variable"><name>num_channels</name></member>
+    <member refid="struct_signal_1a32bff09a616cee12a2c61815a990152d" kind="variable"><name>num_samples</name></member>
+    <member refid="struct_signal_1a57ba9c584cf7756552b7d4370e93395f" kind="variable"><name>data</name></member>
+  </compound>
+  <compound refid="struct_stereo_signal" kind="struct"><name>StereoSignal</name>
+    <member refid="struct_stereo_signal_1a667f55313f484e06f69248550a7353b6" kind="variable"><name>num_samples_per_channel</name></member>
+    <member refid="struct_stereo_signal_1af203d2f72b9a9bf562b7fc56cb187aac" kind="variable"><name>left</name></member>
+    <member refid="struct_stereo_signal_1a81bd94dc9e66c8da6302aa9d338e2cf0" kind="variable"><name>right</name></member>
+  </compound>
+  <compound refid="struct_stft_struct" kind="struct"><name>StftStruct</name>
+    <member refid="struct_stft_struct_1a7fee7b546595edcbee920757b6309386" kind="variable"><name>win</name></member>
+    <member refid="struct_stft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" kind="variable"><name>hop</name></member>
+    <member refid="struct_stft_struct_1a5fe0c446c13b53f5c7d455b623a25234" kind="variable"><name>nfft</name></member>
+    <member refid="struct_stft_struct_1ac862a0e313831d5881be4fba5710244c" kind="variable"><name>plan</name></member>
+    <member refid="struct_stft_struct_1a2d8c91da6215ea27f432f1dfb4afc861" kind="variable"><name>stft_in</name></member>
+    <member refid="struct_stft_struct_1aae05c312bd3df0cbdcf81d2050fe1206" kind="variable"><name>stft_out</name></member>
+    <member refid="struct_stft_struct_1a22d2bd25deff35fb222c81eda8a51203" kind="variable"><name>wnd</name></member>
+    <member refid="struct_stft_struct_1a79a19f415e0c5ac7f9c5aa10803ccf73" kind="variable"><name>padding</name></member>
+  </compound>
+  <compound refid="pad_8h" kind="file"><name>pad.h</name>
+    <member refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" kind="enum"><name>PaddingMode</name></member>
+    <member refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a681dcb1d8769ba176740ef6802fb0728" kind="enumvalue"><name>REFLECT</name></member>
+    <member refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a4b2338c5e1fba3b9cfb3a3473dfcc856" kind="enumvalue"><name>SYMMETRIC</name></member>
+    <member refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91aa622cbc12b78e3e883dd7b3217088a66" kind="enumvalue"><name>EDGE</name></member>
+    <member refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a83972670b57415508523b5641bb46116" kind="enumvalue"><name>CONSTANT</name></member>
+    <member refid="pad_8h_1ae4c31c6bb168fefb09ebe2743bf9a917" kind="function"><name>init_padding</name></member>
+    <member refid="pad_8h_1acd8d95b52a3fa99012de9016408bc852" kind="function"><name>apply_padding</name></member>
+  </compound>
+  <compound refid="signal_8h" kind="file"><name>signal.h</name>
+    <member refid="signal_8h_1a28bd7b72894918287ed248b5207837f5" kind="function"><name>compute_num_frames</name></member>
+    <member refid="signal_8h_1a73af1043e0859b554d4b32732a7dc455" kind="function"><name>read_wav_file</name></member>
+    <member refid="signal_8h_1a699ace5998e35c6f9a7cbe732c16184d" kind="function"><name>write_wav_file</name></member>
+    <member refid="signal_8h_1ae9053006c6e6683e63ecb788a89fa3b1" kind="function"><name>write_to_csv</name></member>
+  </compound>
+  <compound refid="spectral_8h" kind="file"><name>spectral.h</name>
+    <member refid="spectral_8h_1a02e04c049159851c51ee78615b9d93ec" kind="function"><name>calculate_magnitude</name></member>
+  </compound>
+  <compound refid="trafo__istft_8h" kind="file"><name>trafo_istft.h</name>
+    <member refid="trafo__istft_8h_1a8e1f05c296e2c67d935ae475cec1f002" kind="function"><name>istft_init</name></member>
+    <member refid="trafo__istft_8h_1a4dd82c41a47a01a24271a01f08b2236d" kind="function"><name>istft_compute</name></member>
+    <member refid="trafo__istft_8h_1a33ddce3a36fb5f491eba507bba53208a" kind="function"><name>istft_clean</name></member>
+    <member refid="trafo__istft_8h_1add244ba6ac36ef965b5a8eeed58088ff" kind="function"><name>normalize_array</name></member>
+    <member refid="trafo__istft_8h_1af955c1c363f9c19f86e52ac4c926554a" kind="function"><name>get_max</name></member>
+  </compound>
+  <compound refid="trafo__stft_8h" kind="file"><name>trafo_stft.h</name>
+    <member refid="trafo__stft_8h_1af516fc60b3a3bfa5c76faa282898178d" kind="function"><name>stft_init</name></member>
+    <member refid="trafo__stft_8h_1a9a9daab3450b3ec6e48da9ca123dc377" kind="function"><name>stft_compute</name></member>
+    <member refid="trafo__stft_8h_1a0bce5aef7ca57a77d41e1f51bfa541d0" kind="function"><name>stft_inner</name></member>
+    <member refid="trafo__stft_8h_1a6b77d07c4c00727bc0f63fe90a8cb960" kind="function"><name>stft_clean</name></member>
+  </compound>
+  <compound refid="window_8h" kind="file"><name>window.h</name>
+    <member refid="window_8h_1a0342cf04dd48b803dca8b05381ed13de" kind="define"><name>LIBROSA_PI</name></member>
+    <member refid="window_8h_1ad052c92e7163d5e110748b1a96b48e87" kind="function"><name>compute_hanning_window</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/home/am/Fastft/include</name>
+  </compound>
+</doxygenindex>

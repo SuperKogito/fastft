@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_stft_struct" kind="struct" language="C++" prot="public">
+    <compoundname>StftStruct</compoundname>
+    <includes refid="trafo__stft_8h" local="no">trafo_stft.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_stft_struct_1a7fee7b546595edcbee920757b6309386" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int win</definition>
+        <argsstring></argsstring>
+        <name>win</name>
+        <qualifiedname>StftStruct::win</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Window size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="16" column="9" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hop</definition>
+        <argsstring></argsstring>
+        <name>hop</name>
+        <qualifiedname>StftStruct::hop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hop size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="17" column="9" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1a5fe0c446c13b53f5c7d455b623a25234" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int nfft</definition>
+        <argsstring></argsstring>
+        <name>nfft</name>
+        <qualifiedname>StftStruct::nfft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of FFT points. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="18" column="9" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1ac862a0e313831d5881be4fba5710244c" prot="public" static="no" mutable="no">
+        <type>fftwf_plan</type>
+        <definition>fftwf_plan plan</definition>
+        <argsstring></argsstring>
+        <name>plan</name>
+        <qualifiedname>StftStruct::plan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>FFTW plan for STFT computation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="19" column="16" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1a2d8c91da6215ea27f432f1dfb4afc861" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* stft_in</definition>
+        <argsstring></argsstring>
+        <name>stft_in</name>
+        <qualifiedname>StftStruct::stft_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Input array for STFT computation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="20" column="11" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1aae05c312bd3df0cbdcf81d2050fe1206" prot="public" static="no" mutable="no">
+        <type>fftwf_complex *</type>
+        <definition>fftwf_complex* stft_out</definition>
+        <argsstring></argsstring>
+        <name>stft_out</name>
+        <qualifiedname>StftStruct::stft_out</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output array for STFT computation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="21" column="19" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1a22d2bd25deff35fb222c81eda8a51203" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* wnd</definition>
+        <argsstring></argsstring>
+        <name>wnd</name>
+        <qualifiedname>StftStruct::wnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hanning window array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="22" column="11" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stft_struct_1a79a19f415e0c5ac7f9c5aa10803ccf73" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_padding" kindref="compound">Padding</ref> *</type>
+        <definition>Padding* padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>StftStruct::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the padding information. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_stft.h" line="23" column="13" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Structure for STFT (Short-Time Fourier Transform) parameters and plans. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Padding</label>
+        <link refid="struct_padding"/>
+      </node>
+      <node id="1">
+        <label>StftStruct</label>
+        <link refid="struct_stft_struct"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>padding</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/am/Fastft/include/trafo_stft.h" line="15" column="1" bodyfile="/home/am/Fastft/include/trafo_stft.h" bodystart="15" bodyend="24"/>
+    <listofallmembers>
+      <member refid="struct_stft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>hop</name></member>
+      <member refid="struct_stft_struct_1a5fe0c446c13b53f5c7d455b623a25234" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>nfft</name></member>
+      <member refid="struct_stft_struct_1a79a19f415e0c5ac7f9c5aa10803ccf73" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>padding</name></member>
+      <member refid="struct_stft_struct_1ac862a0e313831d5881be4fba5710244c" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>plan</name></member>
+      <member refid="struct_stft_struct_1a2d8c91da6215ea27f432f1dfb4afc861" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>stft_in</name></member>
+      <member refid="struct_stft_struct_1aae05c312bd3df0cbdcf81d2050fe1206" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>stft_out</name></member>
+      <member refid="struct_stft_struct_1a7fee7b546595edcbee920757b6309386" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>win</name></member>
+      <member refid="struct_stft_struct_1a22d2bd25deff35fb222c81eda8a51203" prot="public" virt="non-virtual"><scope>StftStruct</scope><name>wnd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

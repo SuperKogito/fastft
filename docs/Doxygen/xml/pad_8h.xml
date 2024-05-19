@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="pad_8h" kind="file" language="C++">
+    <compoundname>pad.h</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="spectral_8h" local="yes">/home/am/Fastft/include/spectral.h</includedby>
+    <includedby refid="trafo__istft_8h" local="yes">/home/am/Fastft/include/trafo_istft.h</includedby>
+    <includedby refid="trafo__stft_8h" local="yes">/home/am/Fastft/include/trafo_stft.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/am/Fastft/include/pad.h</label>
+        <link refid="pad_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>/home/am/Fastft/include/pad.h</label>
+        <link refid="pad_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/am/Fastft/include/spectral.h</label>
+        <link refid="spectral_8h"/>
+      </node>
+      <node id="3">
+        <label>/home/am/Fastft/include/trafo_istft.h</label>
+        <link refid="trafo__istft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/am/Fastft/include/trafo_stft.h</label>
+        <link refid="trafo__stft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_padding" prot="public">Padding</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PaddingMode</name>
+        <enumvalue id="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a681dcb1d8769ba176740ef6802fb0728" prot="public">
+          <name>REFLECT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reflective padding mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a4b2338c5e1fba3b9cfb3a3473dfcc856" prot="public">
+          <name>SYMMETRIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Symmetric padding mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91aa622cbc12b78e3e883dd7b3217088a66" prot="public">
+          <name>EDGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Edge padding mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a83972670b57415508523b5641bb46116" prot="public">
+          <name>CONSTANT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Constant padding mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration of padding modes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the different modes for padding. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/pad.h" line="13" column="1" bodyfile="/home/am/Fastft/include/pad.h" bodystart="13" bodyend="18"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="pad_8h_1ae4c31c6bb168fefb09ebe2743bf9a917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_padding</definition>
+        <argsstring>(Padding *padding, PaddingMode mode, int width, int unpadded_signal_length, int padded_signal_length, int unpadded_num_frames, int padded_num_frames)</argsstring>
+        <name>init_padding</name>
+        <param>
+          <type><ref refid="struct_padding" kindref="compound">Padding</ref> *</type>
+          <declname>padding</declname>
+        </param>
+        <param>
+          <type><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" kindref="member">PaddingMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>unpadded_signal_length</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>padded_signal_length</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>unpadded_num_frames</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>padded_num_frames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/pad.h" line="37" column="6" declfile="/home/am/Fastft/include/pad.h" declline="37" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="pad_8h_1acd8d95b52a3fa99012de9016408bc852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void apply_padding</definition>
+        <argsstring>(float *signal, int signal_length, Padding *padding)</argsstring>
+        <name>apply_padding</name>
+        <param>
+          <type>float *</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>signal_length</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_padding" kindref="compound">Padding</ref> *</type>
+          <declname>padding</declname>
+        </param>
+        <briefdescription>
+<para>Pad a signal with the specified padding mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function pads the input signal with the specified padding mode and stores the result in the provided <ref refid="struct_padding" kindref="compound">Padding</ref> structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input signal array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signal_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the input signal array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>padding</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the <ref refid="struct_padding" kindref="compound">Padding</ref> structure where the padding information will be stored. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/pad.h" line="49" column="6" declfile="/home/am/Fastft/include/pad.h" declline="49" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PAD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PAD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a681dcb1d8769ba176740ef6802fb0728" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a681dcb1d8769ba176740ef6802fb0728" kindref="member">REFLECT</ref>,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15" refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a4b2338c5e1fba3b9cfb3a3473dfcc856" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a4b2338c5e1fba3b9cfb3a3473dfcc856" kindref="member">SYMMETRIC</ref>,<sp/><sp/></highlight></codeline>
+<codeline lineno="16" refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91aa622cbc12b78e3e883dd7b3217088a66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91aa622cbc12b78e3e883dd7b3217088a66" kindref="member">EDGE</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a83972670b57415508523b5641bb46116" kindref="member">CONSTANT</ref><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18" refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91a83972670b57415508523b5641bb46116" refkind="member"><highlight class="normal">}<sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" kindref="member">PaddingMode</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="struct_padding" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26" refid="struct_padding_1a2474a5474cbff19523a51eb1de01cda4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_padding_1a2474a5474cbff19523a51eb1de01cda4" kindref="member">width</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27" refid="struct_padding_1aad6b04034408f74aaf573e17099c0e69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_padding_1aad6b04034408f74aaf573e17099c0e69" kindref="member">padded_signal</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28" refid="struct_padding_1a96e07120044421d69e5f61af170b3d27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_padding_1a96e07120044421d69e5f61af170b3d27" kindref="member">padded_signal_length</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29" refid="struct_padding_1a19a85891ade2acc5f2068c550330855d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_padding_1a19a85891ade2acc5f2068c550330855d" kindref="member">unpadded_signal_length</ref>;<sp/></highlight></codeline>
+<codeline lineno="30" refid="struct_padding_1a413fd0c031446b16027c701ee6482b37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" kindref="member">PaddingMode</ref><sp/><ref refid="struct_padding_1a413fd0c031446b16027c701ee6482b37" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="struct_padding_1aec05ab9f1faa0c87bf28feb925c10286" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_padding_1aec05ab9f1faa0c87bf28feb925c10286" kindref="member">padded_num_frames</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="struct_padding_1a85023047f9689e42824c4de587a37d8e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_padding_1a85023047f9689e42824c4de587a37d8e" kindref="member">unpadded_num_frames</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/><ref refid="struct_padding" kindref="compound">Padding</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="pad_8h_1ae4c31c6bb168fefb09ebe2743bf9a917" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pad_8h_1ae4c31c6bb168fefb09ebe2743bf9a917" kindref="member">init_padding</ref>(<ref refid="struct_padding" kindref="compound">Padding</ref>*<sp/>padding,<sp/><ref refid="pad_8h_1a14d24d90ab4ba2956e92e27890ba4c91" kindref="member">PaddingMode</ref><sp/>mode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>unpadded_signal_length,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>padded_signal_length,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>unpadded_num_frames,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>padded_num_frames);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="pad_8h_1acd8d95b52a3fa99012de9016408bc852" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pad_8h_1acd8d95b52a3fa99012de9016408bc852" kindref="member">apply_padding</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>signal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>signal_length,<sp/><ref refid="struct_padding" kindref="compound">Padding</ref>*<sp/>padding);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/am/Fastft/include/pad.h"/>
+  </compounddef>
+</doxygen>

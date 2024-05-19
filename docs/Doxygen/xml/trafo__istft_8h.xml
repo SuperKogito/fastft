@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="trafo__istft_8h" kind="file" language="C++">
+    <compoundname>trafo_istft.h</compoundname>
+    <includes local="no">fftw3.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="pad_8h" local="yes">pad.h</includes>
+    <includes refid="window_8h" local="yes">window.h</includes>
+    <includes refid="signal_8h" local="yes">signal.h</includes>
+    <includedby refid="spectral_8h" local="yes">/home/am/Fastft/include/spectral.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>pad.h</label>
+        <link refid="pad_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>signal.h</label>
+        <link refid="signal_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/am/Fastft/include/trafo_istft.h</label>
+        <link refid="trafo__istft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fftw3.h</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="10">
+        <label>sndfile.h</label>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/am/Fastft/include/spectral.h</label>
+        <link refid="spectral_8h"/>
+      </node>
+      <node id="1">
+        <label>/home/am/Fastft/include/trafo_istft.h</label>
+        <link refid="trafo__istft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_istft_struct" prot="public">IstftStruct</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="trafo__istft_8h_1a8e1f05c296e2c67d935ae475cec1f002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void istft_init</definition>
+        <argsstring>(IstftStruct *istft_struct, int n_fft, int reconstructed_signal_length, int win_length, int hop_length)</argsstring>
+        <name>istft_init</name>
+        <param>
+          <type><ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref> *</type>
+          <declname>istft_struct</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n_fft</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reconstructed_signal_length</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>win_length</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hop_length</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the ISTFT structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>istft_struct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ISTFT structure to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n_fft</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the FFT. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reconstructed_signal_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the reconstructed signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>win_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the window. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hop_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the hop. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_istft.h" line="36" column="6" declfile="/home/am/Fastft/include/trafo_istft.h" declline="36" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="trafo__istft_8h_1a4dd82c41a47a01a24271a01f08b2236d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void istft_compute</definition>
+        <argsstring>(IstftStruct *istft_struct, fftwf_complex *stft_values, float *reconstructed_signal, int reconstructed_signal_length, int num_frames, int num_bins)</argsstring>
+        <name>istft_compute</name>
+        <param>
+          <type><ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref> *</type>
+          <declname>istft_struct</declname>
+        </param>
+        <param>
+          <type>fftwf_complex *</type>
+          <declname>stft_values</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>reconstructed_signal</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reconstructed_signal_length</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_frames</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_bins</declname>
+        </param>
+        <briefdescription>
+<para>Compute the ISTFT (Inverse Short-Time Fourier Transform) for given STFT values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>istft_struct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ISTFT structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stft_values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input STFT values. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reconstructed_signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the reconstructed signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reconstructed_signal_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the reconstructed signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_frames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of frames. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_bins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bins. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_istft.h" line="48" column="6" declfile="/home/am/Fastft/include/trafo_istft.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="trafo__istft_8h_1a33ddce3a36fb5f491eba507bba53208a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void istft_clean</definition>
+        <argsstring>(IstftStruct *istft_struct)</argsstring>
+        <name>istft_clean</name>
+        <param>
+          <type><ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref> *</type>
+          <declname>istft_struct</declname>
+        </param>
+        <briefdescription>
+<para>Clean up resources allocated for ISTFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>istft_struct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ISTFT structure to clean up. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_istft.h" line="55" column="6" declfile="/home/am/Fastft/include/trafo_istft.h" declline="55" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="trafo__istft_8h_1add244ba6ac36ef965b5a8eeed58088ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void normalize_array</definition>
+        <argsstring>(float *arr, int length, float max_value)</argsstring>
+        <name>normalize_array</name>
+        <param>
+          <type>float *</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_istft.h" line="59" column="6" declfile="/home/am/Fastft/include/trafo_istft.h" declline="59" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="trafo__istft_8h_1af955c1c363f9c19f86e52ac4c926554a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float get_max</definition>
+        <argsstring>(const float *arr, int length)</argsstring>
+        <name>get_max</name>
+        <param>
+          <type>const float *</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/trafo_istft.h" line="62" column="7" declfile="/home/am/Fastft/include/trafo_istft.h" declline="62" declcolumn="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TRAFO_ISTFT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRAFO_ISTFT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fftw3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pad_8h" kindref="compound">pad.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="window_8h" kindref="compound">window.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="signal_8h" kindref="compound">signal.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="struct_istft_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17" refid="struct_istft_struct_1a7fee7b546595edcbee920757b6309386" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_istft_struct_1a7fee7b546595edcbee920757b6309386" kindref="member">win</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18" refid="struct_istft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_istft_struct_1a470667994f9f206c7c300a8fc9fb6aa0" kindref="member">hop</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19" refid="struct_istft_struct_1a5fe0c446c13b53f5c7d455b623a25234" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_istft_struct_1a5fe0c446c13b53f5c7d455b623a25234" kindref="member">nfft</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20" refid="struct_istft_struct_1ac862a0e313831d5881be4fba5710244c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>fftwf_plan<sp/><ref refid="struct_istft_struct_1ac862a0e313831d5881be4fba5710244c" kindref="member">plan</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21" refid="struct_istft_struct_1a1b3e2ddf1169a8ec06bb5b940ce3482a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>fftwf_complex<sp/>*<ref refid="struct_istft_struct_1a1b3e2ddf1169a8ec06bb5b940ce3482a" kindref="member">istft_in</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22" refid="struct_istft_struct_1abaf45dd4eac68444d4030679ddfe432a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_istft_struct_1abaf45dd4eac68444d4030679ddfe432a" kindref="member">istft_out</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="struct_istft_struct_1a22d2bd25deff35fb222c81eda8a51203" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_istft_struct_1a22d2bd25deff35fb222c81eda8a51203" kindref="member">wnd</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24" refid="struct_istft_struct_1a016d187a2e353c82a38d63f0e814d211" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_istft_struct_1a016d187a2e353c82a38d63f0e814d211" kindref="member">window_sum</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}<sp/><ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="trafo__istft_8h_1a8e1f05c296e2c67d935ae475cec1f002" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="trafo__istft_8h_1a8e1f05c296e2c67d935ae475cec1f002" kindref="member">istft_init</ref>(<ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref><sp/>*istft_struct,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_fft,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reconstructed_signal_length,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>win_length,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hop_length);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="trafo__istft_8h_1a4dd82c41a47a01a24271a01f08b2236d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="trafo__istft_8h_1a4dd82c41a47a01a24271a01f08b2236d" kindref="member">istft_compute</ref>(<ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref>*<sp/>istft_struct,<sp/>fftwf_complex<sp/>*stft_values,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*reconstructed_signal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>reconstructed_signal_length,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_frames,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_bins);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="trafo__istft_8h_1a33ddce3a36fb5f491eba507bba53208a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="trafo__istft_8h_1a33ddce3a36fb5f491eba507bba53208a" kindref="member">istft_clean</ref>(<ref refid="struct_istft_struct" kindref="compound">IstftStruct</ref><sp/>*istft_struct);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>to<sp/>normalize<sp/>an<sp/>array<sp/>based<sp/>on<sp/>its<sp/>maximum<sp/>absolute<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="trafo__istft_8h_1add244ba6ac36ef965b5a8eeed58088ff" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="trafo__istft_8h_1add244ba6ac36ef965b5a8eeed58088ff" kindref="member">normalize_array</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*arr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_value);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>to<sp/>find<sp/>the<sp/>maximum<sp/>absolute<sp/>value<sp/>in<sp/>an<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="trafo__istft_8h_1af955c1c363f9c19f86e52ac4c926554a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="trafo__istft_8h_1af955c1c363f9c19f86e52ac4c926554a" kindref="member">get_max</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*arr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/am/Fastft/include/trafo_istft.h"/>
+  </compounddef>
+</doxygen>

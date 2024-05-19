@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_stereo_signal" kind="struct" language="C++" prot="public">
+    <compoundname>StereoSignal</compoundname>
+    <includes refid="signal_8h" local="no">signal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_stereo_signal_1a667f55313f484e06f69248550a7353b6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int num_samples_per_channel</definition>
+        <argsstring></argsstring>
+        <name>num_samples_per_channel</name>
+        <qualifiedname>StereoSignal::num_samples_per_channel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of samples per channel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="25" column="9" bodyfile="/home/am/Fastft/include/signal.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stereo_signal_1af203d2f72b9a9bf562b7fc56cb187aac" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_signal" kindref="compound">Signal</ref> *</type>
+        <definition>Signal* left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>StereoSignal::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the left channel <ref refid="struct_signal" kindref="compound">Signal</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="26" column="12" bodyfile="/home/am/Fastft/include/signal.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_stereo_signal_1a81bd94dc9e66c8da6302aa9d338e2cf0" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_signal" kindref="compound">Signal</ref> *</type>
+        <definition>Signal* right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>StereoSignal::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the right channel <ref refid="struct_signal" kindref="compound">Signal</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="27" column="12" bodyfile="/home/am/Fastft/include/signal.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Structure representing a stereo audio signal. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Signal</label>
+        <link refid="struct_signal"/>
+      </node>
+      <node id="1">
+        <label>StereoSignal</label>
+        <link refid="struct_stereo_signal"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>left</edgelabel>
+          <edgelabel>right</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/am/Fastft/include/signal.h" line="24" column="1" bodyfile="/home/am/Fastft/include/signal.h" bodystart="24" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_stereo_signal_1af203d2f72b9a9bf562b7fc56cb187aac" prot="public" virt="non-virtual"><scope>StereoSignal</scope><name>left</name></member>
+      <member refid="struct_stereo_signal_1a667f55313f484e06f69248550a7353b6" prot="public" virt="non-virtual"><scope>StereoSignal</scope><name>num_samples_per_channel</name></member>
+      <member refid="struct_stereo_signal_1a81bd94dc9e66c8da6302aa9d338e2cf0" prot="public" virt="non-virtual"><scope>StereoSignal</scope><name>right</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

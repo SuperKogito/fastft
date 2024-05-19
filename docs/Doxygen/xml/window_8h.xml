@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="window_8h" kind="file" language="C++">
+    <compoundname>window.h</compoundname>
+    <includes local="no">math.h</includes>
+    <includedby refid="spectral_8h" local="yes">/home/am/Fastft/include/spectral.h</includedby>
+    <includedby refid="trafo__istft_8h" local="yes">/home/am/Fastft/include/trafo_istft.h</includedby>
+    <includedby refid="trafo__stft_8h" local="yes">/home/am/Fastft/include/trafo_stft.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/am/Fastft/include/window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>math.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/am/Fastft/include/spectral.h</label>
+        <link refid="spectral_8h"/>
+      </node>
+      <node id="3">
+        <label>/home/am/Fastft/include/trafo_istft.h</label>
+        <link refid="trafo__istft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/am/Fastft/include/trafo_stft.h</label>
+        <link refid="trafo__stft_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/am/Fastft/include/window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="window_8h_1a0342cf04dd48b803dca8b05381ed13de" prot="public" static="no">
+        <name>LIBROSA_PI</name>
+        <initializer>3.14159265358979323846</initializer>
+        <briefdescription>
+<para>Value of pi used for audio processing calculations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/window.h" line="9" column="9" bodyfile="/home/am/Fastft/include/window.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="window_8h_1ad052c92e7163d5e110748b1a96b48e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void compute_hanning_window</definition>
+        <argsstring>(int n_fft, float *window)</argsstring>
+        <name>compute_hanning_window</name>
+        <param>
+          <type>int</type>
+          <declname>n_fft</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+<para>Compute the Hanning window for STFT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n_fft</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the FFT. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the computed Hanning window. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/window.h" line="17" column="6" declfile="/home/am/Fastft/include/window.h" declline="17" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>WINDOW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WINDOW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="window_8h_1a0342cf04dd48b803dca8b05381ed13de" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LIBROSA_PI<sp/><sp/><sp/>3.14159265358979323846</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="window_8h_1ad052c92e7163d5e110748b1a96b48e87" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="window_8h_1ad052c92e7163d5e110748b1a96b48e87" kindref="member">compute_hanning_window</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_fft,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*window);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/am/Fastft/include/window.h"/>
+  </compounddef>
+</doxygen>

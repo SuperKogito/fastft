@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="struct_signal" kind="struct" language="C++" prot="public">
+    <compoundname>Signal</compoundname>
+    <includes refid="signal_8h" local="no">signal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_signal_1a527325650d66abd9626499785b3bafd2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sample_rate</definition>
+        <argsstring></argsstring>
+        <name>sample_rate</name>
+        <qualifiedname>Signal::sample_rate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sample rate of the audio signal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="15" column="9" bodyfile="/home/am/Fastft/include/signal.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_signal_1a97e3bedeadf444995deb6fab68f57e21" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int num_channels</definition>
+        <argsstring></argsstring>
+        <name>num_channels</name>
+        <qualifiedname>Signal::num_channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of channels in the audio signal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="16" column="18" bodyfile="/home/am/Fastft/include/signal.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_signal_1a32bff09a616cee12a2c61815a990152d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int num_samples</definition>
+        <argsstring></argsstring>
+        <name>num_samples</name>
+        <qualifiedname>Signal::num_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of audio samples per channel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="17" column="9" bodyfile="/home/am/Fastft/include/signal.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_signal_1a57ba9c584cf7756552b7d4370e93395f" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>Signal::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Array of audio samples for each channel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/am/Fastft/include/signal.h" line="18" column="11" bodyfile="/home/am/Fastft/include/signal.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Structure representing an audio signal. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/am/Fastft/include/signal.h" line="14" column="1" bodyfile="/home/am/Fastft/include/signal.h" bodystart="14" bodyend="19"/>
+    <listofallmembers>
+      <member refid="struct_signal_1a57ba9c584cf7756552b7d4370e93395f" prot="public" virt="non-virtual"><scope>Signal</scope><name>data</name></member>
+      <member refid="struct_signal_1a97e3bedeadf444995deb6fab68f57e21" prot="public" virt="non-virtual"><scope>Signal</scope><name>num_channels</name></member>
+      <member refid="struct_signal_1a32bff09a616cee12a2c61815a990152d" prot="public" virt="non-virtual"><scope>Signal</scope><name>num_samples</name></member>
+      <member refid="struct_signal_1a527325650d66abd9626499785b3bafd2" prot="public" virt="non-virtual"><scope>Signal</scope><name>sample_rate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

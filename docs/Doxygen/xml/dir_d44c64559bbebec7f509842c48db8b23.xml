@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>/home/am/Fastft/include</compoundname>
+    <innerfile refid="pad_8h">pad.h</innerfile>
+    <innerfile refid="signal_8h">signal.h</innerfile>
+    <innerfile refid="spectral_8h">spectral.h</innerfile>
+    <innerfile refid="trafo__istft_8h">trafo_istft.h</innerfile>
+    <innerfile refid="trafo__stft_8h">trafo_stft.h</innerfile>
+    <innerfile refid="window_8h">window.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/am/Fastft/include/"/>
+  </compounddef>
+</doxygen>
