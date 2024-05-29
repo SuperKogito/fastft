@@ -50,6 +50,7 @@ Usage: ./cMOSNet <wav_fpath> <model_path> [verbose]
 ```
 ./cMOSNet test.wav mosnet_cnn.onnx
 ```
+> cMOSNet only works with audio wave files with sample rat of 16000 Hz (like the original).
 
 ## License
 
