@@ -60,7 +60,7 @@ protected:
     }
 
     // File paths
-    const char file_in[26] = "../../resources/short.wav";
+    const char file_in[26] = "../../resources/test.wav";
     const char file_out[38] = "../resources/reconstructed_signal.wav";
 
     // signal variables
