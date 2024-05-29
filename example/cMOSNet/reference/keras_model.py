@@ -1,3 +1,11 @@
+"""
+
+- Description: Implementation of MOSNet: Deep Learning based Objective Assessment for Voice Conversion.
+- Copyright (c) 2024 Ayoub Malek.
+  This source code is licensed under the terms of the BSD 3-Clause License.
+  For a copy, see <https://github.com/SuperKogito/fastft/blob/master/LICENSE>.
+
+"""
 import os 
 import sys
 import librosa
