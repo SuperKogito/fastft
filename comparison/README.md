@@ -62,6 +62,21 @@ Usage: ./fast_stft <wav_fpath>
 python benchmark.py
 ```
 
+# Results
+The code confirms that fastft is a great approximation of librosa in C. This is seen in the plots as well as the logs.
+![](fastft_librosa_mse.png) 
+![](fastft_vs_librosa.png)
+
+```
+- len(librosa-sig) ? len(snd-sig) :  41610 41610
+- librosa-sig      ? sndfile-sig  :  True
+- librosa-sig      - sndfile-sig  :  8.316473590729898e-14
+- fastft STFT shape               :  (163, 257)
+- librosa STFT shape              :  (163, 257)
+- MSE(fastft_stft, librosa_stft)  :  0.00037213606836944727
+
+```
+
 ## License
 
 This project is licensed under the BSD 3-Clause License. See the [LICENSE](https://github.com/SuperKogito/fastft/blob/master/LICENSE) file for details.
