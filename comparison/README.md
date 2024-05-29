@@ -74,7 +74,6 @@ The code confirms that fastft is a great approximation of librosa in C. This is 
 - fastft STFT shape               :  (163, 257)
 - librosa STFT shape              :  (163, 257)
 - MSE(fastft_stft, librosa_stft)  :  0.00037213606836944727
-
 ```
 
 ## License
