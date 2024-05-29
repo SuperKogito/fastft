@@ -52,6 +52,11 @@ Usage: ./cMOSNet <wav_fpath> <model_path> [verbose]
 ```
 > cMOSNet only works with audio wave files with sample rat of 16000 Hz (like the original).
 
+# Results 
+
+- C-implmentation (faster): MOS average: 3.080
+- Python-implmentation    : MOS average: 3.083
+
 ## License
 
 This project is licensed under the BSD 3-Clause License. See the [LICENSE](https://github.com/SuperKogito/fastft/blob/master/LICENSE) file for details.
