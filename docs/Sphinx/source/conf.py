@@ -11,17 +11,20 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+from datetime import datetime
 
+sys.path.insert(0, os.path.abspath("../.."))
+sys.path.insert(0, os.path.abspath("../../.."))
+sys.path.insert(0, os.path.abspath("../../../fastft/"))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Fastft'
-copyright = '2024, Ayoub Malek (@SuperKogito)'
+project = 'fastft'
+copyright = "%s, Ayoub Malek" % datetime.now().year
 author = 'Ayoub Malek (@SuperKogito)'
+html_favicon = "_static/favicon_io/favicon.ico"
 
 # The short X.Y version
 version = ''
@@ -118,15 +121,51 @@ html_css_files = [
     "css/social_media_sharing.css",
 ]
 
-# Custom sidebar templates, must be a dictionary that maps document names
-# to template names.
-#
-# The default sidebars (for documents that don't match any pattern) are
-# defined by theme itself.  Builtin themes are using these templates by
-# default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
-# 'searchbox.html']``.
-#
-# html_sidebars = {}
+html_theme_options = {
+    "github_url": "https://github.com/superkogito/",
+    "search_bar_text": "Search this site...",
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": ["navbar-nav"],
+    "navbar_end": ["search-field.html", "version-switcher", "navbar-icon-links"],
+    "switcher": {
+        "json_url": "_static/switcher.json",
+        "version_match": version,
+    },
+    "external_links": [
+        {"name": "Home", "url": "https://superkogito.github.io/index.html"},
+        {"name": "Projects", "url": "https://superkogito.github.io/projects.html"},
+        {"name": "Blog", "url": "https://superkogito.github.io/blog.html"},
+        {"name": "About Me", "url": "https://superkogito.github.io/about.html"},
+    ],
+}
+
+html_sidebars = {
+    # "index.html": ["sidebar-nav-bs.html"],
+    "**": [
+        "sidebar-nav-bs.html",
+    ],
+}
+
+blog_baseurl = "https://superkogito.github.io"
+blog_title = "SuperKogito"
+blog_path = "blog"
+fontawesome_included = True
+blog_post_pattern = "blog/*/*"
+post_redirect_refresh = 1
+post_auto_image = 0
+post_auto_excerpt = 1
+
+
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["_static"]
+html_css_files = [
+    "css/custom.css",
+    "css/tree_graph.css",
+    "css/social_media_sharing.css",
+]
 
 
 # -- Options for HTMLHelp output ---------------------------------------------

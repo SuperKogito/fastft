@@ -1,5 +1,5 @@
 ==========
-Fastft api
+fastft api
 ==========
 
 .. include:: class_view_hierarchy.rst.include
