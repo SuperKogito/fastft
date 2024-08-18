@@ -11,7 +11,7 @@
 #include <math.h>
 #include <assert.h>
 
-#include "spectral.h"
+#include "fastft_spectral.h"
 #include "onnxruntime_c_api.h"
 
 #define DEBUG 1
@@ -56,14 +56,14 @@ float* read_wave_file(const char* filename, int* fs, int* num_samples) {
 
 // Computes the STFT magnitude of a mono signal.
 float* compute_mono_stft_mag(float* sig4mosnet, int fs, int num_samples, int fft_size, int hop_size, int win_size, int* num_frames, int num_bins) {
-    Signal input_signal;
+    fastft_signal_t input_signal;
     input_signal.num_channels = 1;
     input_signal.sample_rate = fs;
     input_signal.num_samples = num_samples;
     input_signal.data = sig4mosnet;
 
     int do_pad = 1;
-    Padding padding;
+    fastft_padding_t padding;
     padding.mode = REFLECT;
     padding.width = fft_size / 2;
     padding.padded_signal = NULL;
@@ -75,14 +75,14 @@ float* compute_mono_stft_mag(float* sig4mosnet, int fs, int num_samples, int fft
 
     *num_frames = do_pad ? padding.padded_num_frames : padding.unpadded_num_frames;
 
-    StftStruct *stft_struct = (StftStruct *)calloc(1, sizeof(StftStruct));
-    stft_init(stft_struct, fft_size, win_size, hop_size, &padding);
-    fftwf_complex *mono_stft = stft_compute(stft_struct, &input_signal, num_bins, do_pad);
-    stft_clean(stft_struct);
+    fastft_STFT_t *stft_struct = (fastft_STFT_t *)calloc(1, sizeof(fastft_STFT_t));
+    fastft_stft_init(stft_struct, fft_size, win_size, hop_size, &padding);
+    fftwf_complex *mono_stft = fastft_stft_compute(stft_struct, &input_signal, num_bins, do_pad);
+    fastft_stft_clean(stft_struct);
 
     size_t input_tensor_size = (*num_frames) * num_bins;
     float* mono_stft_mag = (float*)malloc(input_tensor_size * sizeof(float));
-    calculate_magnitude(mono_stft,  mono_stft_mag,  input_tensor_size);    
+    fastft_spectral_calculate_magnitude(mono_stft,  mono_stft_mag,  input_tensor_size);    
 
     fftwf_free(mono_stft);
     return mono_stft_mag;

@@ -1,14 +1,11 @@
-#include "signal.h"
+#include "fastft_signal.h"
 
-
-
-
-int compute_num_frames(int num_samples, int win, int hop) {
+int fastft_compute_num_frames(int num_samples, int win, int hop) {
     int num_frames = (num_samples - win) / hop + 1;
     return num_frames;
 }
 
-float* read_wav_file(const char *filename, unsigned int *channels, int *total_samples_count) {
+float* fastft_read_wav_file(const char *filename, unsigned int *channels, int *total_samples_count) {
     SF_INFO sfinfo;
     sfinfo.format = 0; // This tells libsndfile to figure out the format automatically
 
@@ -44,7 +41,7 @@ float* read_wav_file(const char *filename, unsigned int *channels, int *total_sa
     return float_data;
 }
 
-void write_wav_file(const char* filename, const float *audio_buffer, size_t total_samples_count, unsigned int sample_rate, unsigned int channels) {
+void fastft_write_wav_file(const char* filename, const float *audio_buffer, size_t total_samples_count, unsigned int sample_rate, unsigned int channels) {
     SNDFILE *file;
     SF_INFO sfinfo;
 
@@ -72,7 +69,7 @@ void write_wav_file(const char* filename, const float *audio_buffer, size_t tota
 }
 
 
-void write_to_csv(const char *filename, fftwf_complex *stft_data, int num_frames, int num_bins) {
+void fastft_write_to_csv(const char *filename, fftwf_complex *stft_data, int num_frames, int num_bins) {
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
         perror("Failed to open file");

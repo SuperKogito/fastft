@@ -1,5 +1,9 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef FASTFT_WINDOW_H
+#define FASTFT_WINDOW_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <math.h>
 
@@ -14,7 +18,10 @@
  * @param n_fft Length of the FFT.
  * @param window Pointer to store the computed Hanning window.
  */
-void compute_hanning_window(int n_fft, float *window);
+void fastft_window_compute_hanning(int n_fft, float *window);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif

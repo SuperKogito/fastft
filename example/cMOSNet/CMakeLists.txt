@@ -32,7 +32,7 @@ set(SOURCES
 )
 
 # Add subdirectory for fastft library
-add_subdirectory(external/fastft)
+# add_subdirectory(external/fastft)
 
 # Create executable target
 add_executable(cMOSNet ${SOURCES})

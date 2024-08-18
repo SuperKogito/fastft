@@ -1,7 +1,7 @@
-#include "pad.h"
+#include "fastft_padding.h"
 
 
-void init_padding(Padding* padding, PaddingMode mode, int width, int unpadded_signal_length, int padded_signal_length, int unpadded_num_frames, int padded_num_frames) {
+void fastft_padding_init(fastft_padding_t* padding, fastft_padding_mode_t mode, int width, int unpadded_signal_length, int padded_signal_length, int unpadded_num_frames, int padded_num_frames) {
     // Initialize padding
     padding->mode = mode;
     padding->width = width;
@@ -13,7 +13,7 @@ void init_padding(Padding* padding, PaddingMode mode, int width, int unpadded_si
     padding->padded_signal = (float*)calloc(padded_signal_length, sizeof(float));
 }
 
-void apply_padding(float* signal, int signal_length, Padding* padding) {
+void fastft_padding_apply(float* signal, int signal_length, fastft_padding_t* padding) {
     int i, left_reflected_index, right_reflected_index;
     // Calculate the left and right reflected indices based on padding mode
     switch (padding->mode) {

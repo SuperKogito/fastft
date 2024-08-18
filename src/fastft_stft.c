@@ -1,7 +1,7 @@
-#include "trafo_stft.h"
+#include "fastft_stft.h"
 
 
-void stft_init(StftStruct *stft_struct, int nfft, int win_length, int hop_length, Padding* padding) {
+void fastft_stft_init(fastft_STFT_t *stft_struct, int nfft, int win_length, int hop_length, fastft_padding_t* padding) {
     stft_struct->nfft = nfft;
     stft_struct->win  = win_length;
     stft_struct->hop  = hop_length;
@@ -12,20 +12,20 @@ void stft_init(StftStruct *stft_struct, int nfft, int win_length, int hop_length
     stft_struct->stft_out = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * (nfft/2 + 1));
 
     stft_struct->wnd = (float*)calloc(nfft, sizeof(float));
-    compute_hanning_window(nfft, stft_struct->wnd);
+    fastft_window_compute_hanning(nfft, stft_struct->wnd);
 
     stft_struct->plan = fftwf_plan_dft_r2c_1d(nfft, (float*)stft_struct->stft_in, stft_struct->stft_out, FFTW_ESTIMATE);
     stft_struct->padding = padding;
 }
 
-fftwf_complex* stft_compute(StftStruct* stft_struct, Signal *channel_singal, int num_bins, int do_pad) {
-    Padding* padding = stft_struct->padding;
+fftwf_complex* fastft_stft_compute(fastft_STFT_t* stft_struct, fastft_signal_t *channel_singal, int num_bins, int do_pad) {
+    fastft_padding_t* padding = stft_struct->padding;
 
     float* signal  = NULL;
     int num_frames = 0;
 
     if (do_pad) {
-        apply_padding(channel_singal->data, channel_singal->num_samples, padding);
+        fastft_padding_apply(channel_singal->data, channel_singal->num_samples, padding);
         signal     = padding->padded_signal;
         num_frames = padding->padded_num_frames;
     } else {
@@ -33,11 +33,11 @@ fftwf_complex* stft_compute(StftStruct* stft_struct, Signal *channel_singal, int
         num_frames = padding->unpadded_num_frames;
     }
     fftwf_complex* stft_result = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * num_frames * num_bins);
-    stft_inner(stft_struct, signal, &stft_result, num_frames, num_bins);
+    fastft_stft_inner(stft_struct, signal, &stft_result, num_frames, num_bins);
     return stft_result; 
 }
 
-void stft_inner(StftStruct* stft_struct, float* signal, fftwf_complex** stft_result, int num_frames, int num_bins) {
+void fastft_stft_inner(fastft_STFT_t* stft_struct, float* signal, fftwf_complex** stft_result, int num_frames, int num_bins) {
     // process frames
     for (int m = 0; m < num_frames; ++m) {
         // apply Hanning window
@@ -59,7 +59,7 @@ void stft_inner(StftStruct* stft_struct, float* signal, fftwf_complex** stft_res
     }
 }
 
-void stft_clean(StftStruct *stft_struct) {
+void fastft_stft_clean(fastft_STFT_t *stft_struct) {
     fftwf_destroy_plan(stft_struct->plan);
     fftwf_free(stft_struct->stft_out);
     free(stft_struct->stft_in);

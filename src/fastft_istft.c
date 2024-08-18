@@ -1,14 +1,13 @@
-#include "trafo_istft.h"
+#include "fastft_istft.h"
 
-
-void istft_init(IstftStruct *istft_struct, int n_fft, int reconstructed_signal_length, int win_length, int hop_length) {
+void fastft_istft_init(fastft_ISTFT_t *istft_struct, int n_fft, int reconstructed_signal_length, int win_length, int hop_length) {
     istft_struct->nfft = n_fft;
     istft_struct->win = win_length;
     istft_struct->hop = hop_length;
     istft_struct->istft_in = (fftwf_complex*) fftwf_malloc(sizeof(fftwf_complex) * n_fft);
     istft_struct->istft_out = (float*) calloc(n_fft, sizeof(float));
     istft_struct->wnd = (float*)calloc(n_fft, sizeof(float));
-    compute_hanning_window(n_fft, istft_struct->wnd);
+    fastft_window_compute_hanning(n_fft, istft_struct->wnd);
     istft_struct->plan = fftwf_plan_dft_c2r_1d(n_fft, istft_struct->istft_in, istft_struct->istft_out, FFTW_ESTIMATE);
     istft_struct->window_sum = (float*)calloc(reconstructed_signal_length, sizeof(float));
     if (!istft_struct->window_sum) {
@@ -18,7 +17,7 @@ void istft_init(IstftStruct *istft_struct, int n_fft, int reconstructed_signal_l
     }
 }
 
-void istft_compute(IstftStruct* istft_struct, fftwf_complex *stft_values, float *reconstructed_signal, int reconstructed_signal_length, int num_frames, int num_bins) {
+void fastft_istft_compute(fastft_ISTFT_t* istft_struct, fftwf_complex *stft_values, float *reconstructed_signal, int reconstructed_signal_length, int num_frames, int num_bins) {
     int n_fft = istft_struct->nfft;
     for (int i = 0; i < num_frames; ++i) {
         // Retrieve the complex spectrum for the current frame
@@ -52,15 +51,15 @@ void istft_compute(IstftStruct* istft_struct, fftwf_complex *stft_values, float 
     }
 
     // Find the maximum absolute value in the reconstructed signal
-    float max_abs = get_max(reconstructed_signal, reconstructed_signal_length);
-    normalize_array(reconstructed_signal, reconstructed_signal_length, max_abs);
+    float max_abs = fastft_get_max(reconstructed_signal, reconstructed_signal_length);
+    fastft_normalize_array(reconstructed_signal, reconstructed_signal_length, max_abs);
 
     const char titlez[] = "Reconstruction";
     // plot_xy(reconstructed_signal, reconstructed_signal_length, NULL, NULL, titlez);
 }
 
 // Clean up ISTFT memory
-void istft_clean(IstftStruct *istft_struct) {
+void fastft_istft_clean(fastft_ISTFT_t *istft_struct) {
     fftwf_destroy_plan(istft_struct->plan);
     fftwf_free(istft_struct->istft_in);
     free(istft_struct->istft_out);
@@ -70,7 +69,7 @@ void istft_clean(IstftStruct *istft_struct) {
 }
 
 // Function to normalize an array based on its maximum absolute value
-void normalize_array(float *arr, int length, float max_value) {
+void fastft_normalize_array(float *arr, int length, float max_value) {
     for (int i = 0; i < length; ++i) {
         if (max_value != 0) {
             arr[i] /= max_value;
@@ -79,7 +78,7 @@ void normalize_array(float *arr, int length, float max_value) {
 }
 
 // Function to find the maximum absolute value in an array
-float get_max(const float *arr, int length) {
+float fastft_get_max(const float *arr, int length) {
     float max_val = 0.0;
     for (int i = 0; i < length; ++i) {
         float abs_val = fabs(arr[i]);

@@ -1,10 +1,8 @@
 #include "gtest/gtest.h"
-extern "C" {
-    #include "trafo_istft.h"
-    #include "trafo_stft.h"
-    #include "signal.h"
-    #include "pad.h"
-}
+#include "fastft_istft.h"
+#include "fastft_stft.h"
+#include "fastft_signal.h"
+#include "fastft_padding.h"
 
 
 // Define your individual unit tests
@@ -12,11 +10,11 @@ class STFT : public ::testing::Test {
 protected:
     void SetUp() override {
         // Load audio file
-        input_signal.data = read_wav_file(file_in, &input_signal.num_channels, &input_signal.num_samples);
+        input_signal.data = fastft_read_wav_file(file_in, &input_signal.num_channels, &input_signal.num_samples);
 
         // Separate channels
-        stereo_signal.left  = (Signal*)calloc(1, sizeof(Signal));
-        stereo_signal.right = (Signal*)calloc(1, sizeof(Signal));
+        stereo_signal.left  = (fastft_signal_t*)calloc(1, sizeof(fastft_signal_t));
+        stereo_signal.right = (fastft_signal_t *)calloc(1, sizeof(fastft_signal_t));
         stereo_signal.num_samples_per_channel = input_signal.num_samples / 2;
         stereo_signal.left->num_samples  = stereo_signal.num_samples_per_channel;
         stereo_signal.right->num_samples = stereo_signal.num_samples_per_channel;
@@ -41,13 +39,13 @@ protected:
         // Initialize padding
         do_pad = 1;    
         pad_width = fft_size / 2;
-        init_padding(&padding, 
+        fastft_padding_init(&padding, 
                             REFLECT, 
                             pad_width,
                             stereo_signal.num_samples_per_channel,
                             stereo_signal.num_samples_per_channel  + 2 * pad_width,
-                            compute_num_frames(stereo_signal.num_samples_per_channel, fft_size, hop_size),
-                            compute_num_frames(stereo_signal.num_samples_per_channel + 2 * pad_width, fft_size, hop_size));
+                            fastft_compute_num_frames(stereo_signal.num_samples_per_channel, fft_size, hop_size),
+                            fastft_compute_num_frames(stereo_signal.num_samples_per_channel + 2 * pad_width, fft_size, hop_size));
         }
 
     void TearDown() override {
@@ -64,8 +62,8 @@ protected:
     const char file_out[38] = "../resources/reconstructed_signal.wav";
 
     // signal variables
-    Signal input_signal;
-    StereoSignal stereo_signal;
+    fastft_signal_t input_signal;
+    fastft_stereo_signal_t stereo_signal;
 
     // Common variables used across tests
     int num_bins;
@@ -78,11 +76,11 @@ protected:
     // Padding variables
     int do_pad;
     int pad_width;
-    Padding padding;
+    fastft_padding_t padding;
 
     // Initialize STFT and ISTFT structures
-    StftStruct stft_struct;
-    IstftStruct istft_struct;
+    fastft_STFT_t stft_struct;
+    fastft_ISTFT_t istft_struct;
 };
 
 TEST_F(STFT, test_padding_initialization) {
@@ -96,14 +94,14 @@ TEST_F(STFT, test_padding_initialization) {
 
 TEST_F(STFT, test_stft_initialization) {
     // Compute STFT for both channels
-    stft_init(&stft_struct, fft_size, win_size, hop_size, &padding);
+    fastft_stft_init(&stft_struct, fft_size, win_size, hop_size, &padding);
     ASSERT_EQ(stft_struct.nfft, fft_size);    
     ASSERT_EQ(stft_struct.win, win_size);    
     ASSERT_EQ(stft_struct.hop, hop_size);    
 }
 
-TEST_F(STFT, test_stft_compute) {
-  
+TEST_F(STFT, test_stft_compute) {  
+  fastft_stft_init(&stft_struct, fft_size, win_size, hop_size, &padding);
   ASSERT_EQ(stft_struct.nfft, fft_size);    
   ASSERT_EQ(stft_struct.win, win_size);    
   ASSERT_EQ(stft_struct.hop, hop_size);    
@@ -116,8 +114,8 @@ TEST_F(STFT, test_stft_compute) {
   ASSERT_EQ(padding.padded_signal_length, padding.unpadded_signal_length + 2 * pad_width);
   ASSERT_EQ(padding.unpadded_num_frames, (stereo_signal.num_samples_per_channel - fft_size) / hop_size + 1);
   ASSERT_EQ(padding.padded_num_frames, (padding.padded_signal_length - fft_size) / hop_size + 1);
-  fftwf_complex* left_stft  = stft_compute(&stft_struct, stereo_signal.left,  num_bins, do_pad);
-  fftwf_complex* right_stft = stft_compute(&stft_struct, stereo_signal.right, num_bins, do_pad);
+  fftwf_complex* left_stft  = fastft_stft_compute(&stft_struct, stereo_signal.left,  num_bins, do_pad);
+  fftwf_complex* right_stft = fastft_stft_compute(&stft_struct, stereo_signal.right, num_bins, do_pad);
   // stft_clean(&stft_struct);
   printf("3.\n");
 
